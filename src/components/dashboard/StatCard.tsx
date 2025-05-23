@@ -19,15 +19,15 @@ interface StatCardProps {
 export function StatCard({ title, value, icon, trend, className, loading = false }: StatCardProps) {
   if (loading) {
     return (
-      <Card className={cn("stats-card", className)}>
-        <CardHeader className="flex flex-row items-center justify-between pb-2">
-          <CardTitle className="text-sm font-medium">
+      <Card className={cn("ai-card", className)}>
+        <CardHeader className="flex flex-row items-center justify-between pb-3">
+          <CardTitle className="text-sm font-medium text-slate-600">
             <Skeleton className="h-4 w-24" />
           </CardTitle>
-          <Skeleton className="h-8 w-8 rounded-full" />
+          <Skeleton className="h-8 w-8 rounded-xl" />
         </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">
+        <CardContent className="pt-0">
+          <div className="text-3xl font-bold">
             <Skeleton className="h-8 w-16" />
           </div>
           <Skeleton className="h-4 w-20 mt-2" />
@@ -37,22 +37,29 @@ export function StatCard({ title, value, icon, trend, className, loading = false
   }
 
   return (
-    <Card className={cn("stats-card", className)}>
-      <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        {icon && <div>{icon}</div>}
+    <Card className={cn("ai-card group hover:shadow-xl transition-all duration-300", className)}>
+      <CardHeader className="flex flex-row items-center justify-between pb-3">
+        <CardTitle className="text-sm font-medium text-slate-600">{title}</CardTitle>
+        {icon && (
+          <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 text-indigo-600 group-hover:scale-110 transition-transform duration-200">
+            {icon}
+          </div>
+        )}
       </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold">{value}</div>
+      <CardContent className="pt-0">
+        <div className="text-3xl font-bold text-slate-900 mb-2">{value}</div>
         {trend && (
-          <p className={cn("text-xs flex items-center mt-1", 
-            trend.isPositive ? "text-emerald-600" : "text-rose-600"
+          <div className={cn("flex items-center gap-1 text-sm font-medium", 
+            trend.isPositive ? "text-emerald-600" : "text-rose-500"
           )}>
-            <span>
-              {trend.isPositive ? "↑" : "↓"} {Math.abs(trend.value)}%
+            <span className="text-lg">
+              {trend.isPositive ? "↗" : "↘"}
             </span>
-            <span className="text-muted-foreground ml-1">vs last period</span>
-          </p>
+            <span>
+              {Math.abs(trend.value)}%
+            </span>
+            <span className="text-slate-500 ml-1 font-normal">vs last period</span>
+          </div>
         )}
       </CardContent>
     </Card>

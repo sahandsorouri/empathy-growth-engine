@@ -14,6 +14,7 @@ import {
   Menu,
   X,
   BrainCircuit,
+  Sparkles,
 } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -24,17 +25,17 @@ type SidebarItem = {
 };
 
 const sidebarItems: SidebarItem[] = [
-  { name: "Dashboard", href: "/", icon: <Home size={20} /> },
-  { name: "Analytics", href: "/analytics", icon: <BarChart3 size={20} /> },
-  { name: "Audience", href: "/audience", icon: <Users size={20} /> },
-  { name: "Content", href: "/content", icon: <PieChart size={20} /> },
-  { name: "Engagement", href: "/engagement", icon: <TrendingUp size={20} /> },
-  { name: "Calendar", href: "/calendar", icon: <Calendar size={20} /> },
+  { name: "Dashboard", href: "/", icon: <Home size={18} /> },
+  { name: "Analytics", href: "/analytics", icon: <BarChart3 size={18} /> },
+  { name: "Audience", href: "/audience", icon: <Users size={18} /> },
+  { name: "Content", href: "/content", icon: <PieChart size={18} /> },
+  { name: "Engagement", href: "/engagement", icon: <TrendingUp size={18} /> },
+  { name: "Calendar", href: "/calendar", icon: <Calendar size={18} /> },
 ];
 
 const secondarySidebarItems: SidebarItem[] = [
-  { name: "AI Insights", href: "/ai-insights", icon: <BrainCircuit size={20} /> },
-  { name: "Settings", href: "/settings", icon: <Settings size={20} /> },
+  { name: "AI Insights", href: "/ai-insights", icon: <Sparkles size={18} /> },
+  { name: "Settings", href: "/settings", icon: <Settings size={18} /> },
 ];
 
 export default function Sidebar() {
@@ -42,31 +43,33 @@ export default function Sidebar() {
   const isMobile = useIsMobile();
 
   const sidebarContent = (
-    <div className="h-full flex flex-col bg-sidebar p-4 text-sidebar-foreground">
-      <div className="flex items-center mb-8 gap-3">
-        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-600">
-          <BrainCircuit size={24} className="text-white" />
+    <div className="h-full flex flex-col bg-white/90 backdrop-blur-xl border-r border-slate-200/50 p-6 text-slate-700">
+      <div className="flex items-center mb-10 gap-3">
+        <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+          <BrainCircuit size={20} className="text-white" />
         </div>
-        <div className="font-bold text-lg">InstaAI</div>
+        <div className="font-bold text-xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          InstaAI
+        </div>
         {isMobile && (
           <Button 
             variant="ghost" 
             size="icon" 
-            className="ml-auto"
+            className="ml-auto hover:bg-slate-100 rounded-xl"
             onClick={() => setOpen(false)}
           >
-            <X size={20} />
+            <X size={18} />
           </Button>
         )}
       </div>
       
-      <div className="space-y-1">
+      <div className="space-y-2">
         {sidebarItems.map((item) => (
           <SidebarLink key={item.name} item={item} />
         ))}
       </div>
       
-      <div className="mt-auto pt-4 border-t border-sidebar-border space-y-1">
+      <div className="mt-auto pt-6 border-t border-slate-200/50 space-y-2">
         {secondarySidebarItems.map((item) => (
           <SidebarLink key={item.name} item={item} />
         ))}
@@ -80,21 +83,21 @@ export default function Sidebar() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="fixed top-4 left-4 z-50"
+          className="fixed top-6 left-6 z-50 bg-white/80 backdrop-blur-xl shadow-lg hover:bg-white/90 rounded-xl"
           onClick={() => setOpen(true)}
         >
-          <Menu size={20} />
+          <Menu size={18} />
         </Button>
         <div 
           className={cn(
-            "fixed inset-0 z-40 bg-black/50 transition-opacity duration-200",
+            "fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-300",
             open ? "opacity-100" : "opacity-0 pointer-events-none"
           )} 
           onClick={() => setOpen(false)}
         />
         <div 
           className={cn(
-            "fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-200",
+            "fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300",
             open ? "translate-x-0" : "-translate-x-full"
           )}
         >
@@ -104,7 +107,7 @@ export default function Sidebar() {
     );
   }
 
-  return <div className="hidden md:block w-64 h-full">{sidebarContent}</div>;
+  return <div className="hidden md:block w-72 h-full">{sidebarContent}</div>;
 }
 
 function SidebarLink({ item }: { item: SidebarItem }) {
@@ -114,10 +117,10 @@ function SidebarLink({ item }: { item: SidebarItem }) {
     <Link 
       to={item.href} 
       className={cn(
-        "flex items-center gap-3 px-3 py-2 rounded-md transition-colors",
+        "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium text-sm",
         isActive 
-          ? "bg-sidebar-accent text-sidebar-accent-foreground" 
-          : "hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground"
+          ? "bg-gradient-to-r from-indigo-500/10 to-purple-500/10 text-indigo-600 shadow-sm" 
+          : "hover:bg-slate-100/80 text-slate-600 hover:text-slate-900"
       )}
     >
       {item.icon}

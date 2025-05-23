@@ -16,7 +16,7 @@ const Index = () => {
   
   useEffect(() => {
     toast({
-      title: "Welcome to InstaAI Dashboard",
+      title: "Welcome to InstaAI Dashboard ✨",
       description: "AI-powered insights are ready for your review",
       duration: 5000,
     });
@@ -24,11 +24,13 @@ const Index = () => {
 
   return (
     <PageLayout>
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground mt-1">
-            AI-powered insights and analytics for your Instagram performance
+      <div className="space-y-8">
+        <div className="text-center md:text-left">
+          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-slate-900 via-purple-700 to-indigo-600 bg-clip-text text-transparent mb-2">
+            AI Dashboard
+          </h1>
+          <p className="text-slate-600 text-lg">
+            Intelligent insights and predictive analytics for your Instagram growth
           </p>
         </div>
 
@@ -37,42 +39,42 @@ const Index = () => {
           <StatCard 
             title="Total Impressions" 
             value="198.5K" 
-            icon={<Eye className="h-5 w-5 text-muted-foreground" />}
+            icon={<Eye className="h-5 w-5" />}
             trend={{ value: 12, isPositive: true }}
           />
           <StatCard 
             title="Engagement Rate" 
             value="5.2%" 
-            icon={<ThumbsUp className="h-5 w-5 text-muted-foreground" />}
+            icon={<ThumbsUp className="h-5 w-5" />}
             trend={{ value: 0.8, isPositive: true }}
           />
           <StatCard 
             title="Total Followers" 
             value="15.4K" 
-            icon={<Users className="h-5 w-5 text-muted-foreground" />}
+            icon={<Users className="h-5 w-5" />}
             trend={{ value: 3.2, isPositive: true }}
           />
           <StatCard 
             title="Reach" 
             value="112.3K" 
-            icon={<Rocket className="h-5 w-5 text-muted-foreground" />}
+            icon={<Rocket className="h-5 w-5" />}
             trend={{ value: 8.7, isPositive: true }}
           />
         </div>
         
         {/* Charts row */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <PerformanceTrends />
           </div>
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-6">
             <AccountSummary />
             <AudienceOverview />
           </div>
         </div>
         
         {/* AI insights row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <EngagementHeatmap />
           <ContentPerformance />
         </div>
