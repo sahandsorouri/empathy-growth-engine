@@ -9,6 +9,8 @@ import { AiInsights } from "@/components/dashboard/AiInsights";
 import { AccountSummary } from "@/components/dashboard/AccountSummary";
 import { PerformanceTrends } from "@/components/dashboard/PerformanceTrends";
 import { ContentSuggestions } from "@/components/dashboard/ContentSuggestions";
+import { LatestPostInteractions } from "@/components/dashboard/LatestPostInteractions";
+import { NextPostIdeas } from "@/components/dashboard/NextPostIdeas";
 import { useToast } from "@/components/ui/use-toast";
 import { useEffect } from "react";
 
@@ -74,13 +76,21 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Content and AI insights row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <ContentSuggestions />
-          <div className="grid grid-cols-1 gap-6">
-            <EngagementHeatmap />
-            <ContentPerformance />
+        {/* Content and insights row */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <ContentSuggestions />
           </div>
+          <div className="flex flex-col space-y-6">
+            <LatestPostInteractions />
+            <NextPostIdeas />
+          </div>
+        </div>
+        
+        {/* Bottom row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <EngagementHeatmap />
+          <ContentPerformance />
         </div>
         
         <AiInsights />
