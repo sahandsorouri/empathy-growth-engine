@@ -42,7 +42,7 @@ export function StatCard({ title, value, icon, trend, className, loading = false
         <CardTitle className="text-sm font-medium text-slate-600">{title}</CardTitle>
         {icon && (
           <div className="p-2 rounded-xl text-indigo-600 group-hover:scale-110 transition-transform duration-200" style={{
-            backgroundColor: 'rgba(99, 102, 241, 0.1)'
+            backgroundColor: '#e0e7ff'
           }}>
             {icon}
           </div>
