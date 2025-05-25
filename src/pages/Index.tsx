@@ -29,7 +29,12 @@ const Index = () => {
     <PageLayout>
       <div className="space-y-8">
         <div className="text-center md:text-left">
-          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-slate-900 via-purple-700 to-indigo-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-4xl font-bold tracking-tight mb-2" style={{
+            background: 'linear-gradient(to right, rgb(15, 23, 42), rgb(139, 92, 246), rgb(99, 102, 241))',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
             AI Dashboard
           </h1>
           <p className="text-slate-600 text-lg">

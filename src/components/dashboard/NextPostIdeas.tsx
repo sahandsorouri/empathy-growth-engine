@@ -72,7 +72,7 @@ export function NextPostIdeas() {
     <Card className="ai-card">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-slate-800">
-          <Lightbulb className="h-5 w-5 text-yellow-500" />
+          <Lightbulb className="h-5 w-5" style={{ color: 'rgb(234, 179, 8)' }} />
           Quick Post Ideas
         </CardTitle>
         <CardDescription className="text-slate-500">AI-prioritized content suggestions</CardDescription>
@@ -80,7 +80,9 @@ export function NextPostIdeas() {
       <CardContent>
         <div className="space-y-3">
           {nextIdeas.map((idea) => (
-            <div key={idea.id} className="p-3 rounded-lg bg-gradient-to-r from-slate-50/50 to-white/50 border border-slate-100/50 hover:border-slate-200/50 transition-all duration-200 group">
+            <div key={idea.id} className="p-3 rounded-lg border border-slate-100/50 hover:border-slate-200/50 transition-all duration-200 group" style={{
+              background: 'linear-gradient(to right, rgba(248, 250, 252, 0.5), rgba(255, 255, 255, 0.5))'
+            }}>
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
                   <h4 className="font-medium text-slate-800 text-sm mb-1 group-hover:text-slate-900 transition-colors">
@@ -110,11 +112,14 @@ export function NextPostIdeas() {
               <div className="flex items-center justify-between">
                 <div className="h-1 bg-slate-100 rounded-full flex-1 mr-3 overflow-hidden">
                   <div 
-                    className="h-full bg-gradient-to-r from-purple-400 to-pink-400 rounded-full transition-all duration-500"
-                    style={{ width: `${idea.trendScore}%` }}
+                    className="h-full rounded-full transition-all duration-500"
+                    style={{ 
+                      width: `${idea.trendScore}%`,
+                      background: 'linear-gradient(to right, rgb(168, 85, 247), rgb(236, 72, 153))'
+                    }}
                   />
                 </div>
-                <Button variant="outline" size="sm" className="h-6 text-xs px-2 bg-white/80 hover:bg-white">
+                <Button variant="outline" size="sm" className="h-6 text-xs px-2 hover:bg-white" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
                   <Zap className="h-3 w-3 mr-1" />
                   Start
                 </Button>

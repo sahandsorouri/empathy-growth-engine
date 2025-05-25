@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -79,14 +80,18 @@ export function ContentSuggestions() {
         <div className="flex items-center justify-between">
           <div>
             <CardTitle className="flex items-center gap-2 text-slate-800">
-              <Lightbulb className="h-5 w-5 text-yellow-500" />
+              <Lightbulb className="h-5 w-5" style={{ color: 'rgb(234, 179, 8)' }} />
               Content Factory
             </CardTitle>
             <CardDescription className="text-slate-500">
               AI-generated content ideas tailored for your audience
             </CardDescription>
           </div>
-          <Badge variant="secondary" className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 border-purple-200">
+          <Badge variant="secondary" style={{
+            background: 'linear-gradient(to right, rgb(243, 232, 255), rgb(252, 231, 243))',
+            color: 'rgb(139, 92, 246)',
+            borderColor: 'rgb(196, 181, 253)'
+          }}>
             <Sparkles className="h-3 w-3 mr-1" />
             AI Generated
           </Badge>
@@ -95,7 +100,9 @@ export function ContentSuggestions() {
       <CardContent>
         <div className="space-y-4">
           {contentIdeas.map((idea) => (
-            <div key={idea.id} className="group bg-gradient-to-r from-slate-50/50 to-white/50 rounded-xl p-4 border border-slate-100/50 hover:border-slate-200/50 transition-all duration-300 hover:shadow-md">
+            <div key={idea.id} className="group rounded-xl p-4 border border-slate-100/50 hover:border-slate-200/50 transition-all duration-300 hover:shadow-md" style={{
+              background: 'linear-gradient(to right, rgba(248, 250, 252, 0.5), rgba(255, 255, 255, 0.5))'
+            }}>
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <div className="bg-white rounded-lg p-2 shadow-sm border border-slate-100">
@@ -106,7 +113,7 @@ export function ContentSuggestions() {
                       {idea.title}
                     </h4>
                     <div className="flex items-center gap-2 mt-1">
-                      <Badge variant="outline" className="text-xs capitalize bg-white/80">
+                      <Badge variant="outline" className="text-xs capitalize" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
                         {idea.type}
                       </Badge>
                       <Badge className={`text-xs ${getEngagementColor(idea.estimatedEngagement)}`}>
@@ -129,7 +136,10 @@ export function ContentSuggestions() {
               
               <div className="flex flex-wrap gap-1 mb-3">
                 {idea.hashtags.map((hashtag, index) => (
-                  <span key={index} className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-md">
+                  <span key={index} className="text-xs px-2 py-1 rounded-md" style={{
+                    backgroundColor: 'rgb(239, 246, 255)',
+                    color: 'rgb(37, 99, 235)'
+                  }}>
                     {hashtag}
                   </span>
                 ))}
@@ -139,13 +149,16 @@ export function ContentSuggestions() {
                 <div className="flex items-center gap-2">
                   <div className="h-1.5 bg-slate-100 rounded-full w-16 overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-purple-400 to-pink-400 rounded-full transition-all duration-500"
-                      style={{ width: `${idea.trendScore}%` }}
+                      className="h-full rounded-full transition-all duration-500"
+                      style={{ 
+                        width: `${idea.trendScore}%`,
+                        background: 'linear-gradient(to right, rgb(168, 85, 247), rgb(236, 72, 153))'
+                      }}
                     />
                   </div>
                   <span className="text-xs text-slate-500">Trending</span>
                 </div>
-                <Button variant="outline" size="sm" className="h-7 text-xs bg-white/80 hover:bg-white">
+                <Button variant="outline" size="sm" className="h-7 text-xs hover:bg-white" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
                   Use Idea
                 </Button>
               </div>
@@ -153,8 +166,12 @@ export function ContentSuggestions() {
           ))}
         </div>
         
-        <div className="border-t border-slate-100 mt-6 pt-4 bg-gradient-to-r from-slate-50/30 to-white/30">
-          <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg">
+        <div className="border-t border-slate-100 mt-6 pt-4" style={{
+          background: 'linear-gradient(to right, rgba(248, 250, 252, 0.3), rgba(255, 255, 255, 0.3))'
+        }}>
+          <Button className="w-full text-white shadow-lg" style={{
+            background: 'linear-gradient(to right, rgb(147, 51, 234), rgb(219, 39, 119))'
+          }}>
             <Sparkles className="h-4 w-4 mr-2" />
             Generate More Ideas
           </Button>
