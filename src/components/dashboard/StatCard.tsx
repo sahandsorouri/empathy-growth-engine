@@ -41,7 +41,9 @@ export function StatCard({ title, value, icon, trend, className, loading = false
       <CardHeader className="flex flex-row items-center justify-between pb-3">
         <CardTitle className="text-sm font-medium text-slate-600">{title}</CardTitle>
         {icon && (
-          <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 text-indigo-600 group-hover:scale-110 transition-transform duration-200">
+          <div className="p-2 rounded-xl text-indigo-600 group-hover:scale-110 transition-transform duration-200" style={{
+            backgroundColor: 'rgba(99, 102, 241, 0.1)'
+          }}>
             {icon}
           </div>
         )}

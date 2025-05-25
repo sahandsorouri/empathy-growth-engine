@@ -43,10 +43,6 @@
     --sidebar-accent-foreground: 51 65 85;
     --sidebar-border: 226 232 240;
     --sidebar-ring: 99 102 241;
-
-    --gradient-ai: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-    --blur-glass: blur(20px);
   }
 
   .dark {
@@ -95,8 +91,9 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
+    @apply bg-background text-foreground;
+    background: rgb(248, 250, 252);
+    color: rgb(15, 23, 42);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -104,12 +101,12 @@
 
 @layer components {
   .stats-card {
-    @apply bg-white/80 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg shadow-black/5 transition-all duration-300 hover:shadow-xl hover:shadow-black/10 hover:scale-[1.02] overflow-hidden;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+    @apply bg-white rounded-2xl border border-slate-200 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden;
+    background-color: rgb(255, 255, 255);
   }
   
   .ai-gradient {
-    background: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
+    background-color: rgb(99, 102, 241);
     @apply text-white;
   }
   
@@ -126,14 +123,14 @@
   }
 
   .ai-card {
-    @apply relative overflow-hidden rounded-2xl border border-slate-200/50 backdrop-blur-xl shadow-xl shadow-slate-900/5;
-    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);
+    @apply relative overflow-hidden rounded-2xl border border-slate-200 backdrop-blur-xl shadow-xl;
+    background-color: rgb(255, 255, 255);
   }
 
   .ai-card::before {
     content: '';
     @apply absolute inset-0 pointer-events-none;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    background-color: rgba(99, 102, 241, 0.02);
   }
 
   .floating-element {
@@ -152,7 +149,12 @@
   .glow-effect::before {
     content: '';
     @apply absolute -inset-1 rounded-2xl opacity-20 blur-md;
-    background: linear-gradient(135deg, rgb(102, 126, 234), rgb(118, 75, 162));
+    background-color: rgb(99, 102, 241);
     z-index: -1;
+  }
+
+  .insight-gradient {
+    background-color: rgb(99, 102, 241);
+    color: rgb(255, 255, 255);
   }
 }

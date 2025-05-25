@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -80,8 +79,8 @@ export function NextPostIdeas() {
       <CardContent>
         <div className="space-y-3">
           {nextIdeas.map((idea) => (
-            <div key={idea.id} className="p-3 rounded-lg border border-slate-100/50 hover:border-slate-200/50 transition-all duration-200 group" style={{
-              background: 'linear-gradient(to right, rgba(248, 250, 252, 0.5), rgba(255, 255, 255, 0.5))'
+            <div key={idea.id} className="p-3 rounded-lg border border-slate-100 hover:border-slate-200 transition-all duration-200 group" style={{
+              backgroundColor: 'rgb(248, 250, 252)'
             }}>
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
@@ -115,11 +114,11 @@ export function NextPostIdeas() {
                     className="h-full rounded-full transition-all duration-500"
                     style={{ 
                       width: `${idea.trendScore}%`,
-                      background: 'linear-gradient(to right, rgb(168, 85, 247), rgb(236, 72, 153))'
+                      backgroundColor: 'rgb(168, 85, 247)'
                     }}
                   />
                 </div>
-                <Button variant="outline" size="sm" className="h-6 text-xs px-2 hover:bg-white" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+                <Button variant="outline" size="sm" className="h-6 text-xs px-2 hover:bg-white" style={{ backgroundColor: 'rgb(255, 255, 255)' }}>
                   <Zap className="h-3 w-3 mr-1" />
                   Start
                 </Button>
